@@ -3,11 +3,15 @@ package main
 import (
 	"github.com/romanrybachok/testapi"
 	"github.com/romanrybachok/testapi/pkg/handler"
+	"github.com/romanrybachok/testapi/pkg/repository"
+	"github.com/romanrybachok/testapi/pkg/service"
 	"log"
 )
 
 func main() {
-	handlers := new(handler.Handler)
+	repos := repository.NewRepository()
+	services := service.NewService(repos)
+	handlers := handler.NewHandler(services)
 
 	srv := new(api.Server)
 
