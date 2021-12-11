@@ -1,8 +1,12 @@
 package service
 
-import "github.com/romanrybachok/testapi/pkg/repository"
+import (
+	api "github.com/romanrybachok/testapi"
+	"github.com/romanrybachok/testapi/pkg/repository"
+)
 
 type Authorization interface {
+	CreateUser(user api.User) (int, error)
 }
 
 type TodoList interface {
@@ -17,6 +21,8 @@ type Service struct {
 	TodoItem
 }
 
-func NewService(repo *repository.Repository) *Service {
-	return &Service{}
+func NewService(repos *repository.Repository) *Service {
+	return &Service{
+		Authorization: NewAuthService(repos.Authorization),
+	}
 }
