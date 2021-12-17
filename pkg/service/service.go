@@ -20,6 +20,7 @@ type TodoList interface {
 }
 
 type TodoItem interface {
+	Create(listId int, item api.TodoItem) (int, error)
 }
 
 type Service struct {
