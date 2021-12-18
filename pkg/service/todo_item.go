@@ -35,3 +35,7 @@ func (s *TodoItemService) GetById(userId, itemId int) (api.TodoItem, error) {
 func (s *TodoItemService) Delete(userId, itemId int) error {
 	return s.itemRepo.Delete(userId, itemId)
 }
+
+func (s *TodoItemService) Update(userId, itemId int, input api.UpdateItemInput) error {
+	return s.itemRepo.Update(userId, itemId, input)
+}

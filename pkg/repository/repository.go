@@ -23,6 +23,7 @@ type TodoItem interface {
 	GetAll(userId, listId int) ([]api.TodoItem, error)
 	GetById(userId, itemId int) (api.TodoItem, error)
 	Delete(userId, itemId int) error
+	Update(userId, listId int, input api.UpdateItemInput) error
 }
 
 type Repository struct {
