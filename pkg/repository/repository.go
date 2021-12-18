@@ -22,6 +22,7 @@ type TodoItem interface {
 	Create(listId int, list api.TodoItem) (int, error)
 	GetAll(userId, listId int) ([]api.TodoItem, error)
 	GetById(userId, itemId int) (api.TodoItem, error)
+	Delete(userId, itemId int) error
 }
 
 type Repository struct {
